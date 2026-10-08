@@ -58,3 +58,42 @@ The AXI UART Lite peripheral communicates with a PC through the **USB-UART inter
         │ PuTTY           │
         └─────────────────┘
 ```
+---
+### 🎯 Objectives
+- Understand UART serial communication.
+- Implement UART communication using AXI UART Lite.
+- Integrate a MicroBlaze soft processor in Vivado.
+- Connect MicroBlaze to AXI UART Lite through AXI4-Lite.
+- Develop an embedded C application using Vitis.
+- Transmit a predefined message from FPGA to PC.
+- Receive characters from the PC terminal.
+- Echo received characters back to the terminal.
+- Verify the complete UART TX/RX communication path.
+
+---
+### 🛠️ Hardware Requirements
+- Arty A7 FPGA Board
+- USB Cable
+- PC/Laptop
+
+---
+
+### 💻 Software Requirements
+- Xilinx Vivado Design Suite
+- Vitis IDE
+- Tera Term / PuTTY or another serial terminal
+
+---
+
+### ⚙️ System Specifications
+
+| Parameter | Value |
+|---|---|
+| FPGA Board | Arty A7 |
+| Processor | MicroBlaze |
+| UART IP | AXI UART Lite |
+| Communication Bus | AXI4-Lite |
+| System Clock | 100 MHz |
+| UART Baud Rate | 9600 bps |
+| Data Width | 8 bits |
+| Terminal | Tera Term / PuTTY |
