@@ -97,3 +97,72 @@ The AXI UART Lite peripheral communicates with a PC through the **USB-UART inter
 | UART Baud Rate | 9600 bps |
 | Data Width | 8 bits |
 | Terminal | Tera Term / PuTTY |
+
+---
+
+## 🧠 System Architecture
+
+The project consists of the following major components:
+
+### 1. MicroBlaze Processor
+
+MicroBlaze is a soft-core RISC processor implemented inside the FPGA fabric.
+
+It executes the embedded C application responsible for:
+- Sending the predefined UART message.
+- Waiting for incoming characters.
+- Reading received characters.
+- Echoing received characters back to the terminal.
+
+### 2. AXI4-Lite Interface
+The MicroBlaze processor communicates with the UART peripheral through the AXI4-Lite memory-mapped interface.
+
+### 3. AXI UART Lite
+AXI UART Lite performs:
+- Parallel-to-serial conversion for transmission.
+- Serial-to-parallel conversion for reception.
+- UART protocol handling.
+- Communication with the USB-UART interface.
+
+### 4. USB-UART Bridge
+The USB-UART bridge converts the FPGA UART signals into a USB connection that appears as a virtual COM port on the PC.
+
+### 5. PC Serial Terminal
+A serial terminal such as Tera Term or PuTTY is used to:
+- Receive transmitted messages.
+- Send characters to the FPGA.
+- Display echoed characters.
+---
+## 🔧 Vivado Hardware Design
+The hardware system was created using Vivado IP Integrator.
+
+### Main IP blocks
+```
+MicroBlaze
+     │
+     ▼
+AXI Interconnect
+     │
+     ├──────────────► AXI UART Lite
+     │
+     └──────────────► Local Memory / BRAM
+```
+
+### Design Flow
+1. Create a Vivado project.
+2. Select the Arty A7 FPGA device.
+3. Create a Block Design.
+4. Add the MicroBlaze processor.
+5. Add AXI UART Lite.
+6. Add required memory and AXI infrastructure.
+7. Run Block Automation.
+8. Connect AXI interfaces.
+9. Connect UART signals to the board interface.
+10. Validate the design.
+11. Generate HDL wrapper.
+12. Run synthesis.
+13. Run implementation.
+14. Generate the bitstream.
+
+The design was successfully synthesized for the Arty A7 target device.
+---
