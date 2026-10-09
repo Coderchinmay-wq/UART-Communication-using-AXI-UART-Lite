@@ -165,4 +165,60 @@ AXI Interconnect
 14. Generate the bitstream.
 
 The design was successfully synthesized for the Arty A7 target device.
+
 ---
+## 💻 Vitis Software
+
+After generating the hardware design, the hardware platform was exported to Vitis.
+The application performs two main operations.
+
+### Transmitted Message
+```
+Welcome to UART Communication
+```
+### Receive and Echo
+
+The application waits for a character from the serial terminal and sends the received character back.
+
+Example:
+```
+Enter a Character:
+
+User Input:
+A
+
+Received Character : A
+```
+---
+
+## 🧪 UART Verification
+
+The UART communication was verified using a PC serial terminal.
+
+### Test Case 1 — Transmission
+FPGA → PC
+```
+Welcome to UART Communication
+```
+Result
+```
+PASS
+```
+The predefined message was successfully displayed on the terminal.
+
+### Test Case 2 — Character Echo
+PC → FPGA
+```
+ABC123
+```
+FPGA → PC
+```
+ABC123
+```
+Each received character was successfully echoed back through the UART interface.
+
+### Result
+```
+PASS
+```
+The TX and RX paths were successfully verified.
