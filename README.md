@@ -222,3 +222,84 @@ Each received character was successfully echoed back through the UART interface.
 PASS
 ```
 The TX and RX paths were successfully verified.
+
+## 📊 Resource Utilization
+| Resource | Utilization |
+|---|---:|
+| LUT | 38 |
+| FF | 46 |
+| BRAM | 0 |
+| DSP | 0 |
+
+DSP utilization is zero because the application primarily performs serial communication and simple control operations rather than DSP or multiplication-heavy computation.
+
+## 📈 Performance
+
+
+| Parameter | Value |
+|---|---:|
+| System Clock | 100 MHz |
+| UART Baud Rate | 9600 bps |
+| Data Width | 8 bits |
+| Estimated Throughput | ≈ 960 bytes/s |
+
+## 🔍 UART Frame
+
+For standard 8-bit UART communication:
+```
+┌───────┬──────────────┬────────┐
+│ Start │   Data Bits  │ Stop   │
+│  1 bit│    8 bits    │ 1 bit  │
+└───────┴──────────────┴────────┘
+```
+Therefore:
+```
+Total = 1 + 8 + 1
+      = 10 bits / character
+```
+For the word:
+```
+HELLO
+```
+
+there are 5 characters:
+```
+5 × 10 = 50 bits
+```
+## 🚀 Learning Outcomes
+Through this project, the following concepts were explored:
+- FPGA-based embedded systems
+- MicroBlaze soft processors
+- Vivado IP Integrator
+- AXI4-Lite communication
+- AXI UART Lite
+- UART protocol
+- Serial communication
+- Vitis embedded software development
+- FPGA hardware/software co-design
+- Hardware verification
+- Resource utilization analysis
+
+## 🔮 Possible Future Improvements
+The project can be extended with:
+- Interrupt-driven UART communication
+- FIFO-based UART buffering
+- Higher baud rates
+- UART-based sensor communication
+- Command-line interface
+- Multiple AXI peripherals
+- AXI GPIO integration
+- UART-controlled FPGA peripherals
+- Custom AXI peripheral integration
+
+## 👨‍💻 Author
+
+Chinmay N. Yalawatti
+
+Electronics & Communication Engineering
+
+KLE Technological University, BVB Campus, Hubballi
+
+## ⭐ Project
+
+If you find this project useful for learning FPGA-based embedded systems, feel free to explore the repository. 
